@@ -1,7 +1,6 @@
 
 import sqlite3
 from pathlib import Path
-from PySide6.QtGui import QImage
 
 
 class ClipboardDatabase:
@@ -55,7 +54,7 @@ class ClipboardDatabase:
 
     def get_history(self):
         cursor = self.connection.execute("""
-            SELECT id, type, content, image_path, created_at
+            SELECT type, content, image_path, created_at, fingerprint
             FROM history
             ORDER BY id DESC
         """)

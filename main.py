@@ -104,7 +104,7 @@ class ClipboardManager(QMainWindow):
 
     def load_history(self):
         for row in self.db.get_history():
-            item_id, kind, content, image_path, created_at, fingerprint = row
+            kind, content, image_path, created_at, fingerprint = row
 
             self.saved_fingerprints.add(fingerprint)
 

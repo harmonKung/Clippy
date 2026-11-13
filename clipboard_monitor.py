@@ -12,7 +12,7 @@ class ClipboardMonitor(QObject):
         super().__init__()
 
         self.clipboard = QGuiApplication.clipboard()
-        self.previous = ""
+        self.previous_fingerprint = None
 
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.check_clipboard)
@@ -48,9 +48,9 @@ class ClipboardMonitor(QObject):
             return
 
         fingerprint = hashlib.sha256(
-            text.encode("utf-8")
+            current.encode("utf-8")
         ).hexdigest()
 
         if fingerprint != self.previous_fingerprint:
             self.previous_fingerprint = fingerprint
-            self.new_item.emit("text", text, fingerprint)
+            self.new_item.emit("text", current, fingerprint)

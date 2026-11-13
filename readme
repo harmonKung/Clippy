@@ -1,0 +1,13 @@
+Harmon U
+2026/11/12
+
+clippy executable that has a clipboard history of what you've copied.
+runned inside a virutal environment that has python, pyside and pyinstaller.
+
+as of now, once you run clippy.exe whatver you copy next will be in its history until you close it.
+therefore, it doesnt fully save or keep what youve copied where you had left off.
+
+Plan is to make it so clippy keeps the saved text/images in a database
+
+Required installation
+    PySide6
